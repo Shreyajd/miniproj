@@ -99,7 +99,7 @@ def on_connect(unusued_client, unused_userdata, unused_flags, rc):
 def on_publish(unused_client, unused_userdata, unused_mid):
     print('on_publish')
 
-def createJSON(id, unique_id, timestamp, waterconsumed):
+def createJSON(unique_id, timestamp, meterreading, waterconsumed):
     data = {
 	'uniqueID' : unique_id,
 	'dateTime' : timestamp,
@@ -195,7 +195,7 @@ def main():
                         calcs = calcs(firstSampleTime, lastSampleTime)
                         currentTime = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
 			uniqueID = str(uuid.uuid4()) + "-" + sensorID
-                        payload = createJSON(sensorID, uniqueID, dateTime, waterConsumed)
+                        payload = createJSON(uniqueID, dateTime, meterReading, waterConsumed)
                         client.publish(_MQTT_TOPIC, payload, qos=1)
                         print("{}\n".format(payload))
                         time.sleep(0.5)
