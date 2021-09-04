@@ -101,9 +101,9 @@ def on_publish(unused_client, unused_userdata, unused_mid):
 
 def createJSON(id, unique_id, timestamp, waterconsumed):
     data = {
-	'uniqueID' : id,
-	'dateTime' : unique_id,
-	'meterReading' : timestamp,
+	'uniqueID' : unique_id,
+	'dateTime' : timestamp,
+	'meterReading' : meterreading,
 	'waterConsumption' : waterconsumed
     }
 
