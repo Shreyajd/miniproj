@@ -101,10 +101,10 @@ def on_publish(unused_client, unused_userdata, unused_mid):
 
 def createJSON(id, unique_id, timestamp, waterconsumed):
     data = {
-	'sensorID' : id,
-	'uniqueID' : unique_id,
-	'dateTime' : timestamp,
-	'waterConsumed' : waterconsumed
+	'uniqueID' : id,
+	'dateTime' : unique_id,
+	'meterReading' : timestamp,
+	'waterConsumption' : waterconsumed
     }
 
     json_str = json.dumps(data)
